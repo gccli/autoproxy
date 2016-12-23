@@ -1,6 +1,6 @@
 # Windows代理自动配置(PAC)
 
-一个PAC文件包含一个JavaScript形式的函数FindProxyForURL(url, host), 这个函数返回一个包含一个或多个访问规则的字符串。
+PAC文件包含一个JavaScript形式的函数FindProxyForURL(url, host), 这个函数返回一个包含一个或多个访问规则的字符串。
 
 在Windows下配置全局的PAC配置如下：
 
