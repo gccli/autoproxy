@@ -1,3 +1,18 @@
+# Github Webhooks
+
+
+## Deploy Webserver for receive Github Webhook event
+
+* Run `make` to build openresty
+* OpenResty default installed in `/usr/local/openresty`, make symbol link `ln -s $PWD/scripts /usr/local/openresty/nginx/scripts`
+* Run nginx `nginx -c nginx.conf`, Note that the `PATH` already set for nginx path
+
+Test Webhook
+
+    $ curl -d '{"repository": {"full_name": "somebody/test"}}' -H "X-GitHub-Event: push"  http://localhost/api/github
+    {"status":"ok","length":46,"repository":"somebody\/test","event":"push"}
+
+
 # Windows代理自动配置(PAC)
 
 PAC文件包含一个JavaScript形式的函数FindProxyForURL(url, host), 这个函数返回一个包含一个或多个访问规则的字符串。

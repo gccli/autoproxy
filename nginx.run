@@ -6,11 +6,11 @@ NGX_PIDF=$NGINX_PATH/logs/nginx.pid
 NGX_CONF=$(readlink -f nginx.conf)
 
 function nginx_status() {
-    [ ! -f $NGX_PIDF ] && return
-
-    ngx_pid=$(cat $NGX_PIDF)
-    if [ -n "$ngx_pid" ]; then
-        ps -ouser,pid,nlwp,ppid,start,etime,pcpu,pmem,rss,vsz,stat,tname,ucmd -p $ngx_pid
+    if [ -f $NGX_PIDF ]; then
+        ngx_pid=$(cat $NGX_PIDF)
+        if [ -n "$ngx_pid" ]; then
+            ps -ouser,pid,nlwp,ppid,start,etime,pcpu,pmem,rss,vsz,stat,tname,ucmd -p $ngx_pid
+        fi
     fi
 }
 
@@ -27,3 +27,4 @@ else
 fi
 
 nginx_status
+#{status="ok", length=string.len(data), repository=jobj.repository.full_name}))
