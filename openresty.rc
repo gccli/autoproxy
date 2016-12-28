@@ -1,0 +1,2 @@
+OPENRESTY_PATH=/usr/local/openresty
+NGINX_PATH=${OPENRESTY_PATH}/nginx
