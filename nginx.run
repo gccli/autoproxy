@@ -3,8 +3,10 @@
 source openresty.rc
 
 NGX_CONF=$(readlink -f nginx.conf)
-$NGINX_PATH/sbin/nginx -c $NGX_CONF
 
-if ! grep $NGINX_PATH/sbin/nginx ~/.profile; then
-    echo export PATH='$PATH:'$NGINX_PATH/sbin/nginx
+if ! grep "$NGINX_PATH/sbin" ~/.profile; then
+    echo export PATH='$PATH:'$NGINX_PATH/sbin >> ~/.profile
+    source ~/.profile
 fi
+
+nginx -c $NGX_CONF
