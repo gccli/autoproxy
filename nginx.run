@@ -2,11 +2,28 @@
 
 source openresty.rc
 
+NGX_PIDF=$NGINX_PATH/logs/nginx.pid
 NGX_CONF=$(readlink -f nginx.conf)
 
-if ! grep "$NGINX_PATH/sbin" ~/.profile; then
+function nginx_status() {
+    [ ! -f $NGX_PIDF ] && return
+
+    ngx_pid=$(cat $NGX_PIDF)
+    if [ -n "$ngx_pid" ]; then
+        ps -ouser,pid,nlwp,ppid,start,etime,pcpu,pmem,rss,vsz,stat,tname,ucmd -p $ngx_pid
+    fi
+}
+
+grep "$NGINX_PATH/sbin" ~/.profile >/dev/null 2>&1
+if [ $? -ne 0 ]; then
     echo export PATH='$PATH:'$NGINX_PATH/sbin >> ~/.profile
-    source ~/.profile
+fi
+source ~/.profile
+
+if [ -n "$1" ]; then
+    nginx -s $1
+else
+    nginx -c $NGX_CONF
 fi
 
-nginx -c $NGX_CONF
+nginx_status
