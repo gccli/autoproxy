@@ -14,10 +14,18 @@ function nginx_status() {
     fi
 }
 
-grep "$NGINX_PATH/sbin" ~/.profile >/dev/null 2>&1
-if [ $? -ne 0 ]; then
-    echo export PATH='$PATH:'$NGINX_PATH/sbin >> ~/.profile
-fi
+function prepare_env() {
+    grep "$NGINX_PATH/sbin" ~/.profile >/dev/null 2>&1
+    if [ $? -ne 0 ]; then
+        echo export PATH='$PATH:'$NGINX_PATH/sbin >> ~/.profile
+    fi
+
+    ln -sf $PWD/scripts $NGINX_PATH/
+    chmod 755 $HOME
+    chown -R nobody scripts
+}
+
+prepare_env
 source ~/.profile
 
 if [ -n "$1" ]; then
@@ -27,4 +35,3 @@ else
 fi
 
 nginx_status
-#{status="ok", length=string.len(data), repository=jobj.repository.full_name}))
