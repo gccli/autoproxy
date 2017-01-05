@@ -3,8 +3,9 @@ function FindProxyForURL(url, host) {
     var squid = "PROXY 192.168.1.102:3128";
 
     var patterns = {
-      'google': nginx,
-      'github\.com$': squid
+        'google': nginx,
+        'wikipedia', nginx,
+        'github\.com$': nginx
     };
 
     for (var regex in patterns) {
