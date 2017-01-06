@@ -48,7 +48,7 @@
             this.btpac.Text = "设置自动代理";
             this.btpac.UseVisualStyleBackColor = true;
             this.btpac.Click += new System.EventHandler(this.startup_Click);
-            this.btpac.MouseLeave += new System.EventHandler(this.PAC_tip);
+            this.btpac.MouseHover += new System.EventHandler(this.PAC_tip);
             // 
             // stop
             // 
