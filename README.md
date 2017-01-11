@@ -32,3 +32,5 @@ Internet选项 -> 连接 选项卡 -> 局域网设置 -> 使用自动配置脚�
 ![setproxy.png](setproxy.png)
 
 ![setproxy_pac.png](setproxy_pac.png)
+
+# C# program
