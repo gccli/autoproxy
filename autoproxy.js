@@ -1,11 +1,12 @@
 function FindProxyForURL(url, host) {
-    var nginx = "PROXY 10.16.13.18:8080";
-    var squid = "PROXY 192.168.1.102:3128";
+    var squid = 'PROXY 192.168.1.102:3128';
+    var local = 'PROXY 127.0.0.1:8888';
+    var autoproxy = ['PROXY 127.0.0.1:8000', 'PROXY 10.16.13.18:8080'];
 
     var patterns = {
-        'google': nginx,
-        'wikipedia', nginx,
-        'github\.com$': nginx
+        'google': autoproxy,
+        'wikipedia', autoproxy,
+        'github\.com$': autoproxy,
     };
 
     for (var regex in patterns) {
@@ -16,5 +17,5 @@ function FindProxyForURL(url, host) {
         }
     }
 
-    return 'DIRECT'
+    return 'DIRECT';
 }
