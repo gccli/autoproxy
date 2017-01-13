@@ -6,7 +6,7 @@ function FindProxyForURL(url, host) {
 
     var patterns = {
         'google': autoproxy,
-        'wikipedia', autoproxy,
+        'wikipedia': autoproxy,
         'github\.com$': autoproxy,
     };
 
