@@ -8,7 +8,7 @@ function FindProxyForURL(url, host) {
         'google': autoproxy,
         'wikipedia': autoproxy,
         'github.com$': autoproxy,
-        'golang.org$'autoproxy
+        'golang.org$': autoproxy
     };
 
     for (var regex in patterns) {
