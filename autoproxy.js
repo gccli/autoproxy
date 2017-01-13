@@ -1,7 +1,8 @@
 function FindProxyForURL(url, host) {
     var squid = 'PROXY 192.168.1.102:3128';
     var local = 'PROXY 127.0.0.1:8888';
-    var autoproxy = ['PROXY 127.0.0.1:8000', 'PROXY 10.16.13.18:8080'];
+    var nginx = 'PROXY 10.16.13.18:8080';
+    var autoproxy = 'PROXY 127.0.0.1:8000';
 
     var patterns = {
         'google': autoproxy,
