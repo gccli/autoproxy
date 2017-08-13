@@ -7,7 +7,7 @@ function FindProxyForURL(url, host) {
         'google': autoproxy,
         'gstatic': autoproxy,
         'wikipedia': autoproxy,
-        'github.com$': autoproxy,
+        'docker.com$': autoproxy,
         'golang.org$': autoproxy,
         'youtube.com': autoproxy
     };
