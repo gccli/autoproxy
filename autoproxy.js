@@ -14,7 +14,7 @@ function FindProxyForURL(url, host) {
 
     for (var regex in patterns) {
         if (host.match(regex)) {
-            console.log(host);
+            //console.log(host);
             return patterns[regex];
         }
     }
