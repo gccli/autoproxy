@@ -1,15 +1,16 @@
 function FindProxyForURL(url, host) {
-    var local = 'PROXY 127.0.0.1:8888';
-    var nginx = 'PROXY 10.16.13.18:8080';
-    var autoproxy = 'PROXY 127.0.0.1:8844';
+    var localproxy = 'PROXY 127.0.0.1:8844';
+    var vpnproxy = 'PROXY 127.0.0.1:10080;PROXY 192.168.88.1:10080';
+    var comp = "DIRECT;"+vpnproxy;
+
 
     var patterns = {
-        'google': autoproxy,
-        'gstatic': autoproxy,
-        'wikipedia': autoproxy,
-        'docker.com$': autoproxy,
-        'golang.org$': autoproxy,
-        'youtube.com': autoproxy
+        'google': vpnproxy,
+        'gstatic': vpnproxy,
+        'wikipedia': vpnproxy,
+        'docker.com$': vpnproxy,
+        'golang.org$': vpnproxy,
+        'youtube.com': vpnproxy
     };
 
     for (var regex in patterns) {
@@ -20,5 +21,5 @@ function FindProxyForURL(url, host) {
         }
     }
 
-    return 'DIRECT';
+    return comp;
 }
