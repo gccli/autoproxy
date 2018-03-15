@@ -3,7 +3,6 @@ function FindProxyForURL(url, host) {
     var vpnproxy = 'PROXY 127.0.0.1:10080;PROXY 192.168.88.1:10080';
     var comp = "DIRECT;"+vpnproxy;
 
-
     var patterns = {
         'google': vpnproxy,
         'gstatic': vpnproxy,
@@ -15,8 +14,8 @@ function FindProxyForURL(url, host) {
 
     for (var regex in patterns) {
         if (host.match(regex)) {
-            //var logstr = host + " match regex /" + regex + "/ using " + patterns[regex];
-            //console.log(logstr);
+            var logstr = host + " match regex /" + regex + "/ using " + patterns[regex];
+            console.log(logstr);
             return patterns[regex];
         }
     }
