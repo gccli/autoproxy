@@ -9,7 +9,8 @@ function FindProxyForURL(url, host) {
         'wikipedia': vpnproxy,
         'docker.com$': vpnproxy,
         'golang.org$': vpnproxy,
-        'youtube.com': vpnproxy
+        'youtube.com': vpnproxy,
+        'openvpn.net$': vpnproxy
     };
 
     for (var regex in patterns) {
